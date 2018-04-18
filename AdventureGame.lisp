@@ -21,6 +21,9 @@
                                    (chain garden)
                                    (frog garden)))
 
+; プレーヤーの現在地
+(defparameter *location* 'living-room)
+
 (defun describe-location (location nodes)
   "情景を描写する"
   (cadr (assoc location nodes)))
