@@ -32,3 +32,9 @@
 (defun describe-paths (location edges)
   "複数の通り道を一度に描写する"
   (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
+
+(defun objects-at (loc objs obj-locs)
+  "与えられた場所から見えるオブジェクトのリストを返す"
+  (labels ((at-loc-p (obj)
+             (eq (cadr (assoc obj obj-locs)) loc)))
+    (remove-if-not #'at-loc-p objs)))
