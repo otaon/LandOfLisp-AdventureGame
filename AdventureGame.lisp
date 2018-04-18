@@ -24,6 +24,7 @@
 ; プレーヤーの現在地
 (defparameter *location* 'living-room)
 
+;; cleanな関数群
 (defun describe-location (location nodes)
   "情景を描写する"
   (cadr (assoc location nodes)))
@@ -48,6 +49,7 @@
              `(you see a ,obj on the floor.)))
     (apply #'append (mapcar #'describe-obj (objects-at loc objs obj-loc)))))
 
+;; dirtyな関数群
 (defun look ()
   "全てを描写する"
   (append (describe-location *location* *nodes*)
