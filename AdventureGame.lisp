@@ -20,3 +20,6 @@
   "通り道を描写する"
   `(there is a ,(caddr edge) going ,(cadr edge) from here.))
 
+(defun describe-paths (location edges)
+  "複数の通り道を一度に描写する"
+  (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
