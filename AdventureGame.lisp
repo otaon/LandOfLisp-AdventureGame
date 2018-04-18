@@ -12,6 +12,9 @@
                         (garden (living-room east door))
                         (attic (living-room downstairs ladder))))
 
+; ゲーム世界に存在するオブジェクトのリスト
+(defparameter *objects*  '(whiskey bucket frog chain))
+
 (defun describe-location (location nodes)
   "情景を描写する"
   (cadr (assoc location nodes)))
