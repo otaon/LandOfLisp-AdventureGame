@@ -55,3 +55,13 @@
   (append (describe-location *location* *nodes*)
           (describe-paths *location* *edges*)
           (describe-objects *location* *objects* *object-locations*)))
+
+(defun walk (direction)
+  "ゲーム世界を動き回る"
+  (let ((next (find direction
+                    (cdr (assoc *location* *edges*))
+                    :key #'cadr)))
+    (if next
+        (progn (setf *location* (car next))
+               (look))
+        '(you cannot go that way.))))
