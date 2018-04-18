@@ -16,4 +16,7 @@
   "情景を描写する"
   (cadr (assoc location nodes)))
 
+(defun describe-path (edge)
+  "通り道を描写する"
+  `(there is a ,(caddr edge) going ,(cadr edge) from here.))
 
