@@ -73,3 +73,7 @@
          (push (list object 'body) *object-locations*)
          `(you are now carrying the ,object))
         (t '(you cannot get that.))))
+
+(defun inventory ()
+  "持っているものを調べる"
+  (cons 'items- (objects-at 'body *objects* *object-locations*)))
