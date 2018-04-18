@@ -47,3 +47,9 @@
   (labels ((describe-obj (obj)
              `(you see a ,obj on the floor.)))
     (apply #'append (mapcar #'describe-obj (objects-at loc objs obj-loc)))))
+
+(defun look ()
+  "全てを描写する"
+  (append (describe-location *location* *nodes*)
+          (describe-paths *location* *edges*)
+          (describe-objects *location* *objects* *object-locations*)))
