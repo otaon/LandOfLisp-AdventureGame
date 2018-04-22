@@ -77,3 +77,8 @@
 (defun inventory ()
   "持っているものを調べる"
   (cons 'items- (objects-at 'body *objects* *object-locations*)))
+
+
+(defun game-repl ()
+  "ゲーム専用REPL"
+  (loop (print (eval (read)))))
