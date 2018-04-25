@@ -118,11 +118,15 @@
 
 (defun game-print (lst)
   "ゲーム用print"
-  (princ (coerce (tweak-text (coerce (string-trim "()"
-                                                  (prin1-to-string lst))
-                                     'list)
-                             t
-                             nil)
-                 'string))
+  (princ 
+    (coerce 
+      (tweak-text 
+        (coerce (string-trim 
+                  "()"
+                  (prin1-to-string lst))
+                'list)
+        t
+        nil)
+      'string))
   (fresh-line))
 
