@@ -19,3 +19,19 @@
             s))
       ""))
 
+(defun nodes->dot (nodes)
+  "ノードのDOT情報を生成する
+   nodes: list
+    (nodes->dot '((1 (x1-a)) (a2 (x2-a)) (a3 (x3-a)) (a4 (4-a)))) >
+    1[label=\"(1 (X1-A))\"];
+    A2[label=\"(A2 (X2-A))\"];
+    A3[label=\"(A3 (X3-A))\"];
+    A4[label=\"(A4 (|4-A|))\"];"
+  (mapc (lambda (node)
+          (fresh-line)
+          (princ (dot-name (car node)))
+          (princ "[label=\"")
+          (princ (dot-label node))
+          (princ "\"];"))
+        nodes))
+
