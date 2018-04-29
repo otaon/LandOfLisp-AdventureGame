@@ -35,3 +35,17 @@
           (princ "\"];"))
         nodes))
 
+(defun edges->dot (edges)
+  "エッジをDOTフォーマットに変換する"
+  (mapc (lambda (node)
+          (mapc (lambda (edge)
+                  (fresh-line)
+                  (princ (dot-name (car node)))
+                  (princ "->")
+                  (princ (dot-name (car edge)))
+                  (princ "[label=\"")
+                  (princ (dot-label (cdr edge)))
+                  (princ "\"];"))
+                (cdr node)))
+        edges))
+
