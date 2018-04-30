@@ -57,6 +57,9 @@
   (princ "}"))
 
 (defun dot->png (fname thunk)
+  "DOTファイルを画像にする
+   fname: 出力先ファイル名
+   thunk: ファイルに書き出す文字列を出力する関数"
   (with-open-file (*standard-output*
                     fname
                     :direction :output
