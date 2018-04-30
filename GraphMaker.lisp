@@ -67,4 +67,12 @@
     (funcall thunk))
   (ext:shell (concatenate 'string "dot -Tpng -O " fname)))
 
+(defun graph->png (fname nodes edges)
+  "グラフを画像にする
+   fname: 出力先ファイル名
+   nodes: 出力対象のノード
+   edges: 出力対象のエッジ"
+  (dot->png fname
+            (lambda ()
+              (graph->dot nodes edges))))
 
