@@ -49,3 +49,10 @@
                 (cdr node)))
         edges))
 
+(defun graph->dot (nodes edges)
+  "DOTデータを完成させる"
+  (princ "digraph{")
+  (nodes->dot nodes)
+  (edges->dot edges)
+  (princ "}"))
+
