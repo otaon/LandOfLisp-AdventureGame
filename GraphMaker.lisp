@@ -62,5 +62,6 @@
                     :direction :output
                     :if-exists :supersede)
     (funcall thunk))
-  (ext:shell (concatenate 'string "dot -Tpnh -O " fname)))
+  (ext:shell (concatenate 'string "dot -Tpng -O " fname)))
+
 
