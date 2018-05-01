@@ -115,7 +115,10 @@
               (graph->dot nodes edges))))
 
 (defun ugraph->png (fname nodes edges)
-  "無向グラフを画像にする"
+  "無向グラフを画像にする 
+   fname: 出力先ファイル名
+   nodes: 出力対象のノード
+   edges: 出力対象のエッジ"
   (dot->png fname
             (lambda ()
               (ugraph->dot nodes edges))))
