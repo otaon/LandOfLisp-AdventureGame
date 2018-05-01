@@ -1,3 +1,19 @@
+;;; GraphMaker.lisp
+;;;
+;;; 下記のデータ構造をgraphvizでpng画像として出力する
+;;; ((node1 (description-of-node1))
+;;;  (node2 (description-of-node2))
+;;;  (node3 (description-of-node3))
+;;;  ...)
+;;; 
+;;; ((edge1 (destination-node1 direction way)
+;;;         (destination-node2 direction way))
+;;;  (edge2 (destination-node1 direction way))
+;;;  (edge3 (destination-node1 direction way)
+;;;         (destination-node2 direction way))
+;;;  ...)
+
+
 (defun dot-name (exp)
   "ノードの識別子を変換する
    exp: symbol
