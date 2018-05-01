@@ -65,11 +65,33 @@
                 (cdr node)))
         edges))
 
+(defun uedges->dot (edges)
+  "無向グラフのエッジをDOTフォーマットに変換する"
+  (maplist (lambda (lst)
+             (mapc (lambda (edge)
+                     (unless (assoc (car edge) (cdr lst))
+                       (fresh-line)
+                       (princ (dot-name (caar lst)))
+                       (princ "--")
+                       (princ (dot-name (car edge)))
+                       (princ "[label=\"")
+                       (princ (dot-label (cdr edge)))
+                       (princ "\"];")))
+                   (cdar lst)))
+           edges))
+
 (defun graph->dot (nodes edges)
   "DOTデータを完成させる"
   (princ "digraph{")
   (nodes->dot nodes)
   (edges->dot edges)
+  (princ "}"))
+
+(defun ugraph->dot (nodes edges)
+  "無向グラフのDOTデータを完成させる"
+  (princ "graph{")
+  (nodes->dot nodes)
+  (uedges->dot edges)
   (princ "}"))
 
 (defun dot->png (fname thunk)
@@ -91,4 +113,10 @@
   (dot->png fname
             (lambda ()
               (graph->dot nodes edges))))
+
+(defun ugraph->png (fname nodes edges)
+  "無向グラフを画像にする"
+  (dot->png fname
+            (lambda ()
+              (ugraph->dot nodes edges))))
 
